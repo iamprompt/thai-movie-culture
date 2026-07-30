@@ -10,6 +10,8 @@ import {
   ArrowUpDown,
   ArrowUp,
   ArrowDown,
+  Calendar,
+  X,
 } from "lucide-react";
 
 interface CatalogExplorerProps {
@@ -44,9 +46,23 @@ const THAI_MONTHS: Record<string, number> = {
   "ธ.ค.": 11,
 };
 
+const THAI_MONTH_FULL_NAMES: Record<string, string> = {
+  "ม.ค.": "มกราคม",
+  "ก.พ.": "กุมภาพันธ์",
+  "มี.ค.": "มีนาคม",
+  "เม.ย.": "เมษายน",
+  "พ.ค.": "พฤษภาคม",
+  "มิ.ย.": "มิถุนายน",
+  "ก.ค.": "กรกฎาคม",
+  "ส.ค.": "สิงหาคม",
+  "ก.ย.": "กันยายน",
+  "ต.ค.": "ตุลาคม",
+  "พ.ย.": "พฤศจิกายน",
+  "ธ.ค.": "ธันวาคม",
+};
+
 function parseThaiDate(dateStr: string): number {
   if (!dateStr) return 0;
-  // Format example: "24 ก.ค. 2569"
   const parts = dateStr.trim().split(/\s+/);
   if (parts.length >= 3) {
     const day = parseInt(parts[0], 10) || 1;
@@ -56,6 +72,18 @@ function parseThaiDate(dateStr: string): number {
     return new Date(Date.UTC(yearAD, month, day)).getTime();
   }
   return 0;
+}
+
+function getThaiMonthYearKey(dateStr: string): string {
+  if (!dateStr) return "";
+  const parts = dateStr.trim().split(/\s+/);
+  if (parts.length >= 3) {
+    const monthAbbr = parts[1];
+    const yearBE = parts[2];
+    const fullMonth = THAI_MONTH_FULL_NAMES[monthAbbr] || monthAbbr;
+    return `${fullMonth} ${yearBE}`;
+  }
+  return "";
 }
 
 const RATING_RANKS: Record<string, number> = {
@@ -80,6 +108,12 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
   const [selectedRating, setSelectedRating] = useState<string>("ALL");
   const [selectedRemark, setSelectedRemark] = useState<string>("ALL");
   const [selectedApplicant, setSelectedApplicant] = useState<string>("ALL");
+
+  // Date Filtering State
+  const [selectedMonthYear, setSelectedMonthYear] = useState<string>("ALL");
+  const [startDate, setStartDate] = useState<string>("");
+  const [endDate, setEndDate] = useState<string>("");
+
   const [currentPage, setCurrentPage] = useState(1);
 
   // Sorting State - default by approved_date descending
@@ -105,10 +139,26 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
     return Array.from(set).sort();
   }, [movies]);
 
+  // Extract available Months & Years (sorted chronologically descending)
+  const monthYearOptions = useMemo(() => {
+    const monthMap = new Map<string, number>();
+    movies.forEach((m) => {
+      if (m.approved_date) {
+        const key = getThaiMonthYearKey(m.approved_date);
+        if (key && !monthMap.has(key)) {
+          const timestamp = parseThaiDate(m.approved_date);
+          monthMap.set(key, timestamp);
+        }
+      }
+    });
+    return Array.from(monthMap.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([label]) => label);
+  }, [movies]);
+
   // Handle column header click for sorting
   const handleSort = (column: SortColumn) => {
     if (sortColumn === column) {
-      // Toggle direction if already sorting by this column
       setSortDirection((prev) => (prev === "asc" ? "desc" : "asc"));
     } else {
       setSortColumn(column);
@@ -116,8 +166,23 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
     }
   };
 
+  // Clear all filters
+  const handleClearFilters = () => {
+    setSearchQuery("");
+    setSelectedRating("ALL");
+    setSelectedRemark("ALL");
+    setSelectedApplicant("ALL");
+    setSelectedMonthYear("ALL");
+    setStartDate("");
+    setEndDate("");
+  };
+
   // Filtered & Sorted dataset
   const filteredAndSortedMovies = useMemo(() => {
+    // Timestamps for date range filtering
+    const startTimestamp = startDate ? new Date(startDate).getTime() : 0;
+    const endTimestamp = endDate ? new Date(endDate + "T23:59:59").getTime() : Infinity;
+
     // 1. Filter
     const filtered = movies.filter((m) => {
       const matchSearch =
@@ -133,7 +198,24 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
       const matchApplicant =
         selectedApplicant === "ALL" || m.applicant === selectedApplicant;
 
-      return matchSearch && matchRating && matchRemark && matchApplicant;
+      // Month/Year Filter
+      const movieMonthYear = getThaiMonthYearKey(m.approved_date);
+      const matchMonthYear =
+        selectedMonthYear === "ALL" || movieMonthYear === selectedMonthYear;
+
+      // Date Range Filter
+      const movieTimestamp = parseThaiDate(m.approved_date);
+      const matchDateRange =
+        movieTimestamp >= startTimestamp && movieTimestamp <= endTimestamp;
+
+      return (
+        matchSearch &&
+        matchRating &&
+        matchRemark &&
+        matchApplicant &&
+        matchMonthYear &&
+        matchDateRange
+      );
     });
 
     // 2. Sort
@@ -185,6 +267,9 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
     selectedRating,
     selectedRemark,
     selectedApplicant,
+    selectedMonthYear,
+    startDate,
+    endDate,
     sortColumn,
     sortDirection,
   ]);
@@ -192,7 +277,17 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
   // Reset page when filters change
   React.useEffect(() => {
     setCurrentPage(1);
-  }, [searchQuery, selectedRating, selectedRemark, selectedApplicant, sortColumn, sortDirection]);
+  }, [
+    searchQuery,
+    selectedRating,
+    selectedRemark,
+    selectedApplicant,
+    selectedMonthYear,
+    startDate,
+    endDate,
+    sortColumn,
+    sortDirection,
+  ]);
 
   // Pagination bounds
   const totalPages = Math.ceil(filteredAndSortedMovies.length / ITEMS_PER_PAGE) || 1;
@@ -263,9 +358,18 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
     );
   };
 
+  const hasActiveFilters =
+    searchQuery !== "" ||
+    selectedRating !== "ALL" ||
+    selectedRemark !== "ALL" ||
+    selectedApplicant !== "ALL" ||
+    selectedMonthYear !== "ALL" ||
+    startDate !== "" ||
+    endDate !== "";
+
   return (
     <div className="space-y-6">
-      {/* Search & Filter Controls */}
+      {/* Search & Filter Controls Panel */}
       <div className="glass-panel p-6 rounded-2xl border border-slate-200 bg-white space-y-4 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Search Input */}
@@ -280,8 +384,19 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             />
           </div>
 
-          {/* Export Actions */}
+          {/* Export Actions & Reset */}
           <div className="flex items-center space-x-2">
+            {hasActiveFilters && (
+              <button
+                onClick={handleClearFilters}
+                className="px-3 py-2 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 flex items-center space-x-1 transition-all cursor-pointer"
+                title="ล้างตัวกรองทั้งหมด"
+              >
+                <X className="w-3.5 h-3.5 text-slate-500" />
+                <span>ล้างตัวกรอง</span>
+              </button>
+            )}
+
             <button
               onClick={exportJSON}
               className="px-3.5 py-2 text-xs font-semibold bg-white hover:bg-slate-50 text-slate-700 rounded-xl border border-slate-300 flex items-center space-x-1.5 shadow-2xs transition-all cursor-pointer"
@@ -300,8 +415,54 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           </div>
         </div>
 
-        {/* Filter Dropdowns */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-200 text-xs">
+        {/* Filter Dropdowns Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 pt-2 border-t border-slate-200 text-xs">
+          {/* Month / Year Filter */}
+          <div>
+            <label className="block font-medium text-slate-600 mb-1 flex items-center gap-1">
+              <Calendar className="w-3 h-3 text-amber-600" />
+              <span>เดือน / ปีอนุมัติ:</span>
+            </label>
+            <select
+              value={selectedMonthYear}
+              onChange={(e) => setSelectedMonthYear(e.target.value)}
+              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none cursor-pointer"
+            >
+              <option value="ALL">ทุกเดือน (All Months)</option>
+              {monthYearOptions.map((my) => (
+                <option key={my} value={my}>
+                  {my}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Date Range - Start Date */}
+          <div>
+            <label className="block font-medium text-slate-600 mb-1">
+              ตั้งแต่วันที่ (Start Date):
+            </label>
+            <input
+              type="date"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-1.5 focus:outline-none cursor-pointer"
+            />
+          </div>
+
+          {/* Date Range - End Date */}
+          <div>
+            <label className="block font-medium text-slate-600 mb-1">
+              ถึงวันที่ (End Date):
+            </label>
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-1.5 focus:outline-none cursor-pointer"
+            />
+          </div>
+
           {/* Rating Filter */}
           <div>
             <label className="block font-medium text-slate-600 mb-1">
@@ -324,7 +485,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           {/* Medium Filter */}
           <div>
             <label className="block font-medium text-slate-600 mb-1">
-              ช่องทางเผยแพร่ (Medium):
+              ช่องทางเผยแพร่:
             </label>
             <select
               value={selectedRemark}
@@ -339,25 +500,25 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
               ))}
             </select>
           </div>
+        </div>
 
-          {/* Applicant Filter */}
-          <div>
-            <label className="block font-medium text-slate-600 mb-1">
-              ผู้ยื่นคำขอ (Applicant):
-            </label>
-            <select
-              value={selectedApplicant}
-              onChange={(e) => setSelectedApplicant(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none truncate cursor-pointer"
-            >
-              <option value="ALL">ทั้งหมด (All Applicants)</option>
-              {applicants.map((a) => (
-                <option key={a} value={a}>
-                  {a}
-                </option>
-              ))}
-            </select>
-          </div>
+        {/* Second Row Filter: Applicant Dropdown */}
+        <div className="pt-1 text-xs">
+          <label className="block font-medium text-slate-600 mb-1">
+            ผู้ยื่นคำขอ (Applicant):
+          </label>
+          <select
+            value={selectedApplicant}
+            onChange={(e) => setSelectedApplicant(e.target.value)}
+            className="w-full sm:w-1/2 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none truncate cursor-pointer"
+          >
+            <option value="ALL">ทั้งหมด (All Applicants)</option>
+            {applicants.map((a) => (
+              <option key={a} value={a}>
+                {a}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
 
