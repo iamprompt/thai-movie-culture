@@ -426,7 +426,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             <select
               value={selectedMonthYear}
               onChange={(e) => setSelectedMonthYear(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none cursor-pointer"
+              className="w-full h-[38px] px-3 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer box-border"
             >
               <option value="ALL">ทุกเดือน (All Months)</option>
               {monthYearOptions.map((my) => (
@@ -446,7 +446,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-1.5 focus:outline-none cursor-pointer"
+              className="w-full h-[38px] px-3 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer box-border"
             />
           </div>
 
@@ -459,7 +459,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
               type="date"
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-1.5 focus:outline-none cursor-pointer"
+              className="w-full h-[38px] px-3 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer box-border"
             />
           </div>
 
@@ -471,7 +471,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             <select
               value={selectedRating}
               onChange={(e) => setSelectedRating(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none cursor-pointer"
+              className="w-full h-[38px] px-3 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer box-border"
             >
               <option value="ALL">ทั้งหมด (All Ratings)</option>
               {ratings.map((r) => (
@@ -490,7 +490,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
             <select
               value={selectedRemark}
               onChange={(e) => setSelectedRemark(e.target.value)}
-              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none cursor-pointer"
+              className="w-full h-[38px] px-3 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer box-border"
             >
               <option value="ALL">ทั้งหมด (All Mediums)</option>
               {remarks.map((rm) => (
@@ -510,7 +510,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           <select
             value={selectedApplicant}
             onChange={(e) => setSelectedApplicant(e.target.value)}
-            className="w-full sm:w-1/2 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none truncate cursor-pointer"
+            className="w-full sm:w-1/2 h-[38px] px-3 bg-slate-50 border border-slate-300 text-slate-800 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none truncate cursor-pointer box-border"
           >
             <option value="ALL">ทั้งหมด (All Applicants)</option>
             {applicants.map((a) => (
