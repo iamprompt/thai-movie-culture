@@ -206,7 +206,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
             </span>
           </div>
 
-          <div className="relative py-4">
+          <div className="relative">
             {/* Continuous Line passing through exact center of circle nodes */}
             <div className="absolute top-[24px] left-6 right-6 h-0.5 bg-amber-400 z-0"></div>
 
