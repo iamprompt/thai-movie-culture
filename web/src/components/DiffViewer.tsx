@@ -177,16 +177,16 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
 
   return (
     <div className="space-y-6">
-      {/* TIMELINE STYLE TOP SELECTOR PANEL */}
-      <div className="glass-panel rounded-2xl p-6 border border-slate-200 bg-white shadow-sm space-y-6">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-4">
+      {/* VERSION COMPARISON DROPDOWN SELECTOR PANEL */}
+      <div className="glass-panel rounded-2xl p-6 border border-slate-200 bg-white shadow-sm space-y-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-200 pb-3">
           <div>
             <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
               <Clock className="w-5 h-5 text-amber-600" />
-              <span>เลือกช่วงเวลาเปลี่ยนแปลงบน Timeline (Chronological Timeline Selector)</span>
+              <span>เลือกเวอร์ชันเพื่อเปรียบเทียบ (Version Comparison Selector)</span>
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              ระบบบังคับให้เวอร์ชันตั้งต้น (Baseline) เกิดก่อนเวอร์ชันเปรียบเทียบ (Target) เสมอ
+              เลือกเวอร์ชันตั้งต้น (Baseline) และเวอร์ชันเปรียบเทียบ (Target) ตามวันที่และเวลาบันทึกข้อมูล
             </p>
           </div>
           <div className="flex items-center space-x-2 text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1.5 rounded-lg shrink-0">
@@ -194,82 +194,8 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           </div>
         </div>
 
-        {/* Visual Horizontal Timeline Nodes Track */}
-        <div className="relative pt-2 pb-4">
-          <div className="text-xs font-semibold text-slate-600 mb-4 flex items-center justify-between">
-            <span className="flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5 text-amber-600" />
-              <span>เส้นเวลาประวัติการอัปเดต (คลิก Node เพื่อเลือกเวอร์ชัน):</span>
-            </span>
-            <span className="text-[11px] text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
-              ◄ เก่ากว่า (Baseline) ------------ ใหม่กว่า (Target) ►
-            </span>
-          </div>
-
-          <div className="relative">
-            {/* Continuous Line passing through exact center of circle nodes */}
-            <div className="absolute top-[24px] left-6 right-6 h-0.5 bg-amber-400 z-0"></div>
-
-            <div className="relative z-10 flex items-start justify-between overflow-x-auto pb-4 pt-3.5 px-3 gap-8 no-scrollbar">
-              {/* Render timeline nodes chronologically: Oldest (left) to Newest (right) */}
-              {[...commits].reverse().map((c) => {
-                const originalIndex = commits.findIndex((item) => item.sha === c.sha);
-                const { full, relative } = formatThaiDateTime(c.commit.author.date);
-                const isOld = selectedOldSha === c.sha;
-                const isNew = selectedNewSha === c.sha;
-
-                return (
-                  <div
-                    key={`node-${c.sha}`}
-                    className="flex flex-col items-center shrink-0 space-y-2 group cursor-pointer"
-                    onClick={() => handleNodeClick(originalIndex, c.sha)}
-                  >
-                    {/* Timeline Circle Dot */}
-                    <div
-                      className={`w-5 h-5 rounded-full border-2 transition-all flex items-center justify-center shrink-0 ${
-                        isOld
-                          ? "bg-amber-500 border-white ring-4 ring-amber-200 shadow-md scale-110"
-                          : isNew
-                          ? "bg-blue-600 border-white ring-4 ring-blue-200 shadow-md scale-110"
-                          : "bg-white border-slate-400 group-hover:border-amber-500 group-hover:scale-105"
-                      }`}
-                    >
-                      {(isOld || isNew) && (
-                        <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                      )}
-                    </div>
-
-                    {/* Badge & Date/Time label */}
-                    <div className="text-center space-y-0.5 pt-1">
-                      {isOld && (
-                        <span className="px-1.5 py-0.5 text-[10px] font-bold bg-amber-500 text-white rounded block shadow-2xs">
-                          1. Baseline (ตั้งต้น)
-                        </span>
-                      )}
-                      {isNew && (
-                        <span className="px-1.5 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded block shadow-2xs">
-                          2. Target (เปรียบเทียบ)
-                        </span>
-                      )}
-                      <span className="text-[11px] font-bold text-slate-800 block whitespace-nowrap">
-                        {full.split(" เวลา")[0]}
-                      </span>
-                      <span className="text-[10px] text-slate-500 font-mono block whitespace-nowrap">
-                        {full.includes("เวลา") ? "เวลา " + full.split("เวลา ")[1] : ""}
-                      </span>
-                      <span className="text-[10px] text-slate-400 block whitespace-nowrap">
-                        ({relative})
-                      </span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
         {/* Dropdown Selectors with Formatted Thai Date & Time */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-slate-200 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
           {/* Baseline Version Dropdown */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1">
