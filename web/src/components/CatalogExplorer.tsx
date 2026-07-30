@@ -116,22 +116,22 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
     switch (rating) {
       case "ทั่วไป":
       case "G":
-        return "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+        return "bg-emerald-50 text-emerald-700 border-emerald-300";
       case "13+":
-        return "bg-blue-500/10 text-blue-400 border-blue-500/30";
+        return "bg-blue-50 text-blue-700 border-blue-300";
       case "15+":
-        return "bg-amber-500/10 text-amber-400 border-amber-500/30";
+        return "bg-amber-50 text-amber-800 border-amber-300";
       case "18+":
-        return "bg-red-500/10 text-red-400 border-red-500/30";
+        return "bg-red-50 text-red-700 border-red-300";
       default:
-        return "bg-slate-800 text-slate-300 border-slate-700";
+        return "bg-slate-100 text-slate-700 border-slate-300";
     }
   };
 
   return (
     <div className="space-y-6">
       {/* Search & Filter Controls */}
-      <div className="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+      <div className="glass-panel p-6 rounded-2xl border border-slate-200 bg-white space-y-4 shadow-sm">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           {/* Search Input */}
           <div className="relative flex-1">
@@ -141,7 +141,7 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
               placeholder="ค้นหาชื่อเรื่อง, เลขที่ใบอนุญาต, หรือชื่อผู้ยื่นคำขอ..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 text-slate-100 text-sm rounded-xl pl-10 pr-4 py-2.5 focus:ring-2 focus:ring-amber-500 focus:outline-none placeholder-slate-500"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-xl pl-10 pr-4 py-2.5 focus:ring-2 focus:ring-amber-500 focus:outline-none placeholder-slate-400"
             />
           </div>
 
@@ -149,33 +149,33 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           <div className="flex items-center space-x-2">
             <button
               onClick={exportJSON}
-              className="px-3.5 py-2 text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl border border-slate-700 flex items-center space-x-1.5 transition-all"
+              className="px-3.5 py-2 text-xs font-semibold bg-white hover:bg-slate-50 text-slate-700 rounded-xl border border-slate-300 flex items-center space-x-1.5 shadow-2xs transition-all"
             >
-              <Download className="w-3.5 h-3.5 text-blue-400" />
+              <Download className="w-3.5 h-3.5 text-blue-600" />
               <span>Export JSON</span>
             </button>
 
             <button
               onClick={exportCSV}
-              className="px-3.5 py-2 text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl border border-slate-700 flex items-center space-x-1.5 transition-all"
+              className="px-3.5 py-2 text-xs font-semibold bg-white hover:bg-slate-50 text-slate-700 rounded-xl border border-slate-300 flex items-center space-x-1.5 shadow-2xs transition-all"
             >
-              <Download className="w-3.5 h-3.5 text-emerald-400" />
+              <Download className="w-3.5 h-3.5 text-emerald-600" />
               <span>Export CSV</span>
             </button>
           </div>
         </div>
 
         {/* Filter Dropdowns */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-800/80 text-xs">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 border-t border-slate-200 text-xs">
           {/* Rating Filter */}
           <div>
-            <label className="block font-medium text-slate-400 mb-1">
+            <label className="block font-medium text-slate-600 mb-1">
               เรทติ้ง (Rating):
             </label>
             <select
               value={selectedRating}
               onChange={(e) => setSelectedRating(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 text-slate-200 rounded-lg p-2 focus:outline-none"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none"
             >
               <option value="ALL">ทั้งหมด (All Ratings)</option>
               {ratings.map((r) => (
@@ -188,13 +188,13 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
 
           {/* Medium Filter */}
           <div>
-            <label className="block font-medium text-slate-400 mb-1">
+            <label className="block font-medium text-slate-600 mb-1">
               ช่องทางเผยแพร่ (Medium):
             </label>
             <select
               value={selectedRemark}
               onChange={(e) => setSelectedRemark(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 text-slate-200 rounded-lg p-2 focus:outline-none"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none"
             >
               <option value="ALL">ทั้งหมด (All Mediums)</option>
               {remarks.map((rm) => (
@@ -207,13 +207,13 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
 
           {/* Applicant Filter */}
           <div>
-            <label className="block font-medium text-slate-400 mb-1">
+            <label className="block font-medium text-slate-600 mb-1">
               ผู้ยื่นคำขอ (Applicant):
             </label>
             <select
               value={selectedApplicant}
               onChange={(e) => setSelectedApplicant(e.target.value)}
-              className="w-full bg-slate-900 border border-slate-700 text-slate-200 rounded-lg p-2 focus:outline-none truncate"
+              className="w-full bg-slate-50 border border-slate-300 text-slate-800 rounded-lg p-2 focus:outline-none truncate"
             >
               <option value="ALL">ทั้งหมด (All Applicants)</option>
               {applicants.map((a) => (
@@ -227,10 +227,10 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
       </div>
 
       {/* Stats Counter */}
-      <div className="flex items-center justify-between text-xs text-slate-400 px-1">
+      <div className="flex items-center justify-between text-xs text-slate-600 px-1">
         <span>
           แสดง {paginatedMovies.length} จากทั้งหมด{" "}
-          <strong className="text-amber-400 font-bold">
+          <strong className="text-amber-700 font-bold">
             {filteredMovies.length}
           </strong>{" "}
           รายการที่ตรงตามเงื่อนไข
@@ -242,17 +242,17 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
 
       {/* Catalog Table Grid */}
       {paginatedMovies.length === 0 ? (
-        <div className="glass-panel rounded-2xl p-12 text-center text-slate-400">
-          <Film className="w-10 h-10 text-slate-600 mx-auto mb-2" />
-          <p className="text-base font-semibold text-slate-300">
+        <div className="glass-panel rounded-2xl p-12 text-center text-slate-500 bg-white">
+          <Film className="w-10 h-10 text-slate-400 mx-auto mb-2" />
+          <p className="text-base font-semibold text-slate-800">
             ไม่พบภาพยนตร์ตามเงื่อนไขการค้นหา
           </p>
         </div>
       ) : (
-        <div className="glass-panel rounded-2xl border border-slate-800 overflow-hidden shadow-xl">
+        <div className="glass-panel rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-sm">
           <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm text-slate-300">
-              <thead className="bg-slate-900/90 text-xs uppercase text-slate-400 font-semibold border-b border-slate-800">
+            <table className="w-full text-left text-sm text-slate-800">
+              <thead className="bg-slate-100 text-xs uppercase text-slate-600 font-semibold border-b border-slate-200">
                 <tr>
                   <th className="py-3.5 px-4">ชื่อเรื่อง (Title)</th>
                   <th className="py-3.5 px-4">รหัสใบอนุญาต</th>
@@ -263,16 +263,16 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
                   <th className="py-3.5 px-4 text-right">แอ็กชัน</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-slate-200">
                 {paginatedMovies.map((movie, idx) => (
                   <tr
                     key={`movie-${idx}`}
-                    className="hover:bg-slate-800/40 transition-colors"
+                    className="hover:bg-slate-50 transition-colors"
                   >
-                    <td className="py-3 px-4 font-bold text-slate-100 max-w-xs">
+                    <td className="py-3 px-4 font-bold text-slate-900 max-w-xs">
                       {movie.title}
                     </td>
-                    <td className="py-3 px-4 text-xs font-mono text-slate-400">
+                    <td className="py-3 px-4 text-xs font-mono text-slate-600">
                       {movie.license_no || "-"}
                     </td>
                     <td className="py-3 px-4">
@@ -284,19 +284,19 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
                         {movie.rating || "-"}
                       </span>
                     </td>
-                    <td className="py-3 px-4 text-xs text-slate-300">
+                    <td className="py-3 px-4 text-xs text-slate-700">
                       {movie.remark || movie.type || "-"}
                     </td>
-                    <td className="py-3 px-4 text-xs text-slate-400 whitespace-nowrap">
+                    <td className="py-3 px-4 text-xs text-slate-600 whitespace-nowrap">
                       {movie.approved_date || "-"}
                     </td>
-                    <td className="py-3 px-4 text-xs text-slate-300 max-w-xs truncate">
+                    <td className="py-3 px-4 text-xs text-slate-700 max-w-xs truncate">
                       {movie.applicant || "-"}
                     </td>
                     <td className="py-3 px-4 text-right">
                       <button
                         onClick={() => onViewDetail(movie)}
-                        className="p-1.5 text-slate-400 hover:text-amber-400 bg-slate-800/60 hover:bg-slate-800 rounded-lg transition-all"
+                        className="p-1.5 text-slate-500 hover:text-amber-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-all"
                         title="ดูรายละเอียด"
                       >
                         <Eye className="w-4 h-4" />
@@ -309,27 +309,27 @@ export const CatalogExplorer: React.FC<CatalogExplorerProps> = ({
           </div>
 
           {/* Pagination Controls */}
-          <div className="flex items-center justify-between px-4 py-3 bg-slate-900/80 border-t border-slate-800">
+          <div className="flex items-center justify-between px-4 py-3 bg-slate-50 border-t border-slate-200">
             <button
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="px-3 py-1.5 text-xs font-medium bg-slate-800 disabled:opacity-40 text-slate-300 rounded-lg flex items-center space-x-1 border border-slate-700"
+              className="px-3 py-1.5 text-xs font-medium bg-white disabled:opacity-40 text-slate-700 rounded-lg flex items-center space-x-1 border border-slate-300 shadow-2xs"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4 text-slate-500" />
               <span>ย้อนกลับ</span>
             </button>
 
-            <span className="text-xs text-slate-400 font-medium">
+            <span className="text-xs text-slate-600 font-medium">
               หน้า {currentPage} จาก {totalPages}
             </span>
 
             <button
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="px-3 py-1.5 text-xs font-medium bg-slate-800 disabled:opacity-40 text-slate-300 rounded-lg flex items-center space-x-1 border border-slate-700"
+              className="px-3 py-1.5 text-xs font-medium bg-white disabled:opacity-40 text-slate-700 rounded-lg flex items-center space-x-1 border border-slate-300 shadow-2xs"
             >
               <span>ถัดไป</span>
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4 text-slate-500" />
             </button>
           </div>
         </div>

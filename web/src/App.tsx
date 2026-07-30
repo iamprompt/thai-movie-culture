@@ -73,7 +73,7 @@ export const App: React.FC = () => {
   }, [selectedOldSha, selectedNewSha, commits]);
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
       {/* Header Navbar */}
       <Navbar
         activeTab={activeTab}
@@ -115,7 +115,7 @@ export const App: React.FC = () => {
       />
 
       {/* Footer */}
-      <footer className="border-t border-slate-900 bg-[#05070a] py-6 text-center text-xs text-slate-500">
+      <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500">
         <div className="max-w-7xl mx-auto px-4">
           <p>
             © {new Date().getFullYear()} Thai Approved Movie & Video Catalog Scraper • Data automatically synced from culture.go.th
