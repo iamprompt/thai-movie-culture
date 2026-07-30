@@ -196,7 +196,7 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
 
         {/* Visual Horizontal Timeline Nodes Track */}
         <div className="relative pt-2 pb-4">
-          <div className="text-xs font-semibold text-slate-600 mb-3 flex items-center justify-between">
+          <div className="text-xs font-semibold text-slate-600 mb-4 flex items-center justify-between">
             <span className="flex items-center gap-1">
               <Calendar className="w-3.5 h-3.5 text-amber-600" />
               <span>เส้นเวลาประวัติการอัปเดต (คลิก Node เพื่อเลือกเวอร์ชัน):</span>
@@ -206,60 +206,65 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
             </span>
           </div>
 
-          <div className="relative flex items-center justify-between overflow-x-auto pb-4 pt-2 px-2 border-t-2 border-amber-300 gap-6 no-scrollbar">
-            {/* Render timeline nodes chronologically: Oldest (left) to Newest (right) */}
-            {[...commits].reverse().map((c) => {
-              const originalIndex = commits.findIndex((item) => item.sha === c.sha);
-              const { full, relative } = formatThaiDateTime(c.commit.author.date);
-              const isOld = selectedOldSha === c.sha;
-              const isNew = selectedNewSha === c.sha;
+          <div className="relative py-2">
+            {/* Continuous Line passing through exact center of circle nodes */}
+            <div className="absolute top-[10px] left-6 right-6 h-0.5 bg-amber-400 z-0"></div>
 
-              return (
-                <div
-                  key={`node-${c.sha}`}
-                  className="flex flex-col items-center shrink-0 space-y-2 group cursor-pointer"
-                  onClick={() => handleNodeClick(originalIndex, c.sha)}
-                >
-                  {/* Timeline Dot */}
+            <div className="relative z-10 flex items-start justify-between overflow-x-auto pb-4 pt-0 px-2 gap-8 no-scrollbar">
+              {/* Render timeline nodes chronologically: Oldest (left) to Newest (right) */}
+              {[...commits].reverse().map((c) => {
+                const originalIndex = commits.findIndex((item) => item.sha === c.sha);
+                const { full, relative } = formatThaiDateTime(c.commit.author.date);
+                const isOld = selectedOldSha === c.sha;
+                const isNew = selectedNewSha === c.sha;
+
+                return (
                   <div
-                    className={`w-5 h-5 rounded-full border-2 transition-all flex items-center justify-center ${
-                      isOld
-                        ? "bg-amber-500 border-white ring-4 ring-amber-200 shadow-md scale-110"
-                        : isNew
-                        ? "bg-blue-600 border-white ring-4 ring-blue-200 shadow-md scale-110"
-                        : "bg-white border-slate-400 group-hover:border-amber-500 group-hover:scale-105"
-                    }`}
+                    key={`node-${c.sha}`}
+                    className="flex flex-col items-center shrink-0 space-y-2 group cursor-pointer"
+                    onClick={() => handleNodeClick(originalIndex, c.sha)}
                   >
-                    {(isOld || isNew) && (
-                      <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
-                    )}
-                  </div>
+                    {/* Timeline Circle Dot */}
+                    <div
+                      className={`w-5 h-5 rounded-full border-2 transition-all flex items-center justify-center shrink-0 ${
+                        isOld
+                          ? "bg-amber-500 border-white ring-4 ring-amber-200 shadow-md scale-110"
+                          : isNew
+                          ? "bg-blue-600 border-white ring-4 ring-blue-200 shadow-md scale-110"
+                          : "bg-white border-slate-400 group-hover:border-amber-500 group-hover:scale-105"
+                      }`}
+                    >
+                      {(isOld || isNew) && (
+                        <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                      )}
+                    </div>
 
-                  {/* Badge & Date/Time label */}
-                  <div className="text-center space-y-0.5">
-                    {isOld && (
-                      <span className="px-1.5 py-0.5 text-[10px] font-bold bg-amber-500 text-white rounded block">
-                        1. Baseline (ตั้งต้น)
+                    {/* Badge & Date/Time label */}
+                    <div className="text-center space-y-0.5 pt-1">
+                      {isOld && (
+                        <span className="px-1.5 py-0.5 text-[10px] font-bold bg-amber-500 text-white rounded block shadow-2xs">
+                          1. Baseline (ตั้งต้น)
+                        </span>
+                      )}
+                      {isNew && (
+                        <span className="px-1.5 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded block shadow-2xs">
+                          2. Target (เปรียบเทียบ)
+                        </span>
+                      )}
+                      <span className="text-[11px] font-bold text-slate-800 block whitespace-nowrap">
+                        {full.split(" เวลา")[0]}
                       </span>
-                    )}
-                    {isNew && (
-                      <span className="px-1.5 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded block">
-                        2. Target (เปรียบเทียบ)
+                      <span className="text-[10px] text-slate-500 font-mono block whitespace-nowrap">
+                        {full.includes("เวลา") ? "เวลา " + full.split("เวลา ")[1] : ""}
                       </span>
-                    )}
-                    <span className="text-[11px] font-bold text-slate-800 block whitespace-nowrap">
-                      {full.split(" เวลา")[0]}
-                    </span>
-                    <span className="text-[10px] text-slate-500 font-mono block whitespace-nowrap">
-                      {full.includes("เวลา") ? "เวลา " + full.split("เวลา ")[1] : ""}
-                    </span>
-                    <span className="text-[10px] text-slate-400 block whitespace-nowrap">
-                      ({relative})
-                    </span>
+                      <span className="text-[10px] text-slate-400 block whitespace-nowrap">
+                        ({relative})
+                      </span>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
 
