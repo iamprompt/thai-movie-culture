@@ -1,0 +1,27 @@
+{
+  "name": "thai-movie-culture",
+  "version": "1.0.0",
+  "description": "Scraper for approved Thai movie & video content catalog from culture.go.th",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "scrape": "tsx src/index.ts",
+    "scrape:full": "tsx src/index.ts --full"
+  },
+  "keywords": [
+    "thai-movie",
+    "culture-go-th",
+    "scraper"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "ky": "^1.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

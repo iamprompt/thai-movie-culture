@@ -1,0 +1,69 @@
+name: Fetch Approved Thai Movies & Videos Data
+
+on:
+  workflow_dispatch:
+    inputs:
+      full_scrape:
+        description: "Perform full scrape of all pages (~14,700 pages)"
+        type: boolean
+        required: false
+        default: false
+      max_pages:
+        description: "Max pages to scrape in incremental mode"
+        type: string
+        required: false
+        default: "50"
+  repository_dispatch:
+    types: [fetch-movies, scrape-movies]
+  schedule:
+    - cron: "0 0 * * *" # Daily at 00:00 UTC
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Movie Scraper
+        run: |
+          if [ "${{ github.event.inputs.full_scrape }}" = "true" ] || [ "${{ github.event.client_payload.full_scrape }}" = "true" ]; then
+            echo "Running FULL scrape..."
+            pnpm run scrape:full
+          else
+            MAX_PAGES="${{ github.event.inputs.max_pages || github.event.client_payload.max_pages || '50' }}"
+            echo "Running INCREMENTAL scrape (max pages: $MAX_PAGES)..."
+            pnpm run scrape -- --pages "$MAX_PAGES"
+          fi
+
+      - name: Check for Data Changes & Commit
+        run: |
+          git status
+          if git diff --quiet data/movies.json; then
+            echo "No changes detected in data/movies.json."
+          else
+            echo "Changes detected in data/movies.json! Committing..."
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add data/movies.json
+            git commit -m "chore(data): update approved movie list [skip ci]"
+            git push
+          fi
