@@ -206,11 +206,11 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
             </span>
           </div>
 
-          <div className="relative py-2">
+          <div className="relative py-4">
             {/* Continuous Line passing through exact center of circle nodes */}
-            <div className="absolute top-[10px] left-6 right-6 h-0.5 bg-amber-400 z-0"></div>
+            <div className="absolute top-[24px] left-6 right-6 h-0.5 bg-amber-400 z-0"></div>
 
-            <div className="relative z-10 flex items-start justify-between overflow-x-auto pb-4 pt-0 px-2 gap-8 no-scrollbar">
+            <div className="relative z-10 flex items-start justify-between overflow-x-auto pb-4 pt-3.5 px-3 gap-8 no-scrollbar">
               {/* Render timeline nodes chronologically: Oldest (left) to Newest (right) */}
               {[...commits].reverse().map((c) => {
                 const originalIndex = commits.findIndex((item) => item.sha === c.sha);
