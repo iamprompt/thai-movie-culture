@@ -11,7 +11,7 @@ import {
   Filter,
   Eye,
   Calendar,
-  ArrowRight,
+  AlertCircle,
 } from "lucide-react";
 
 interface DiffViewerProps {
@@ -87,6 +87,59 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
   >("all");
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Indices in commits array (commits[0] is newest, commits[len-1] is oldest)
+  const indexOld = useMemo(
+    () => commits.findIndex((c) => c.sha === selectedOldSha),
+    [commits, selectedOldSha]
+  );
+  const indexNew = useMemo(
+    () => commits.findIndex((c) => c.sha === selectedNewSha),
+    [commits, selectedNewSha]
+  );
+
+  // Handle Baseline change with auto-adjustment to ensure Baseline is ALWAYS BEFORE Target
+  const handleBaselineChange = (newOldSha: string) => {
+    const newIndexOld = commits.findIndex((c) => c.sha === newOldSha);
+    onSelectOldSha(newOldSha);
+
+    // Baseline must be older (greater index in array) than Target
+    if (newIndexOld !== -1 && indexNew !== -1 && newIndexOld <= indexNew) {
+      // Auto adjust Target to a newer commit (index 0 or indexOld - 1)
+      const adjustedNewIndex = Math.max(0, newIndexOld - 1);
+      if (adjustedNewIndex !== indexNew && commits[adjustedNewIndex]) {
+        onSelectNewSha(commits[adjustedNewIndex].sha);
+      }
+    }
+  };
+
+  // Handle Target change with auto-adjustment to ensure Baseline is ALWAYS BEFORE Target
+  const handleTargetChange = (newNewSha: string) => {
+    const newIndexNew = commits.findIndex((c) => c.sha === newNewSha);
+    onSelectNewSha(newNewSha);
+
+    // Target must be newer (smaller index in array) than Baseline
+    if (newIndexNew !== -1 && indexOld !== -1 && newIndexNew >= indexOld) {
+      // Auto adjust Baseline to an older commit (commits.length - 1 or newIndexNew + 1)
+      const adjustedOldIndex = Math.min(commits.length - 1, newIndexNew + 1);
+      if (adjustedOldIndex !== indexOld && commits[adjustedOldIndex]) {
+        onSelectOldSha(commits[adjustedOldIndex].sha);
+      }
+    }
+  };
+
+  // Handle node click on timeline track
+  const handleNodeClick = (clickedIndex: number, sha: string) => {
+    if (sha === selectedOldSha || sha === selectedNewSha) return;
+
+    // If clicked node is older than Target (greater index than Target), set as Baseline
+    if (indexNew !== -1 && clickedIndex > indexNew) {
+      onSelectOldSha(sha);
+    } else {
+      // Otherwise set as Target
+      onSelectNewSha(sha);
+    }
+  };
+
   const filteredAdded = useMemo(() => {
     if (!diffSummary) return [];
     return diffSummary.added.filter(
@@ -130,10 +183,10 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           <div>
             <h2 className="text-lg font-bold text-slate-900 flex items-center space-x-2">
               <Clock className="w-5 h-5 text-amber-600" />
-              <span>เลือกช่วงเวลาเปลี่ยนแปลงบน Timeline (Timeline Date Selector)</span>
+              <span>เลือกช่วงเวลาเปลี่ยนแปลงบน Timeline (Chronological Timeline Selector)</span>
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              เลือกเวอร์ชันตั้งต้นและเวอร์ชันเปรียบเทียบตามวันที่และเวลาที่มีการอัปเดตข้อมูล
+              ระบบบังคับให้เวอร์ชันตั้งต้น (Baseline) เกิดก่อนเวอร์ชันเปรียบเทียบ (Target) เสมอ
             </p>
           </div>
           <div className="flex items-center space-x-2 text-xs font-mono bg-amber-50 text-amber-800 border border-amber-200 px-3 py-1.5 rounded-lg shrink-0">
@@ -143,13 +196,20 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
 
         {/* Visual Horizontal Timeline Nodes Track */}
         <div className="relative pt-2 pb-4">
-          <div className="text-xs font-semibold text-slate-500 mb-3 flex items-center gap-1">
-            <Calendar className="w-3.5 h-3.5 text-amber-600" />
-            <span>เส้นเวลาประวัติการอัปเดต (Timeline Track - Click node to select version):</span>
+          <div className="text-xs font-semibold text-slate-600 mb-3 flex items-center justify-between">
+            <span className="flex items-center gap-1">
+              <Calendar className="w-3.5 h-3.5 text-amber-600" />
+              <span>เส้นเวลาประวัติการอัปเดต (คลิก Node เพื่อเลือกเวอร์ชัน):</span>
+            </span>
+            <span className="text-[11px] text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-md border border-amber-200">
+              ◄ เก่ากว่า (Baseline) ------------ ใหม่กว่า (Target) ►
+            </span>
           </div>
 
           <div className="relative flex items-center justify-between overflow-x-auto pb-4 pt-2 px-2 border-t-2 border-amber-300 gap-6 no-scrollbar">
-            {commits.map((c, idx) => {
+            {/* Render timeline nodes chronologically: Oldest (left) to Newest (right) */}
+            {[...commits].reverse().map((c) => {
+              const originalIndex = commits.findIndex((item) => item.sha === c.sha);
               const { full, relative } = formatThaiDateTime(c.commit.author.date);
               const isOld = selectedOldSha === c.sha;
               const isNew = selectedNewSha === c.sha;
@@ -158,19 +218,15 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
                 <div
                   key={`node-${c.sha}`}
                   className="flex flex-col items-center shrink-0 space-y-2 group cursor-pointer"
-                  onClick={() => {
-                    if (isOld) return;
-                    if (isNew) onSelectOldSha(c.sha);
-                    else onSelectNewSha(c.sha);
-                  }}
+                  onClick={() => handleNodeClick(originalIndex, c.sha)}
                 >
                   {/* Timeline Dot */}
                   <div
                     className={`w-5 h-5 rounded-full border-2 transition-all flex items-center justify-center ${
-                      isNew
-                        ? "bg-blue-600 border-white ring-4 ring-blue-200 shadow-md scale-110"
-                        : isOld
+                      isOld
                         ? "bg-amber-500 border-white ring-4 ring-amber-200 shadow-md scale-110"
+                        : isNew
+                        ? "bg-blue-600 border-white ring-4 ring-blue-200 shadow-md scale-110"
                         : "bg-white border-slate-400 group-hover:border-amber-500 group-hover:scale-105"
                     }`}
                   >
@@ -183,12 +239,12 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
                   <div className="text-center space-y-0.5">
                     {isOld && (
                       <span className="px-1.5 py-0.5 text-[10px] font-bold bg-amber-500 text-white rounded block">
-                        Baseline (ตั้งต้น)
+                        1. Baseline (ตั้งต้น)
                       </span>
                     )}
                     {isNew && (
                       <span className="px-1.5 py-0.5 text-[10px] font-bold bg-blue-600 text-white rounded block">
-                        Target (เปรียบเทียบ)
+                        2. Target (เปรียบเทียบ)
                       </span>
                     )}
                     <span className="text-[11px] font-bold text-slate-800 block whitespace-nowrap">
@@ -212,19 +268,26 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           {/* Baseline Version Dropdown */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-amber-500"></span>
-              <span>1. เวอร์ชันตั้งต้น (Baseline Version):</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              <span>1. เวอร์ชันตั้งต้น (Baseline - ต้องเกิดก่อน):</span>
             </label>
             <select
               value={selectedOldSha}
-              onChange={(e) => onSelectOldSha(e.target.value)}
-              className="w-full h-[40px] px-3 bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer"
+              onChange={(e) => handleBaselineChange(e.target.value)}
+              className="w-full h-[40px] px-3 bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl focus:ring-2 focus:ring-amber-500 focus:outline-none cursor-pointer font-medium"
             >
-              {commits.map((c) => {
+              {commits.map((c, i) => {
                 const { full, relative } = formatThaiDateTime(c.commit.author.date);
+                const isTarget = c.sha === selectedNewSha;
+                const isAfterTarget = indexNew !== -1 && i <= indexNew;
+
                 return (
-                  <option key={`old-${c.sha}`} value={c.sha}>
-                    📅 {full} ({relative}) — #{c.sha.substring(0, 7)}
+                  <option
+                    key={`old-${c.sha}`}
+                    value={c.sha}
+                    disabled={isTarget}
+                  >
+                    📅 {full} ({relative}) {isAfterTarget ? "⚠️ (เกิดขึ้นหลัง Target)" : ""}
                   </option>
                 );
               })}
@@ -234,19 +297,26 @@ export const DiffViewer: React.FC<DiffViewerProps> = ({
           {/* Target Version Dropdown */}
           <div className="space-y-1.5">
             <label className="text-xs font-semibold text-slate-700 uppercase tracking-wider flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-blue-600"></span>
-              <span>2. เวอร์ชันล่าสุด / เปรียบเทียบ (Target Version):</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+              <span>2. เวอร์ชันล่าสุด / เปรียบเทียบ (Target - ต้องเกิดหลัง):</span>
             </label>
             <select
               value={selectedNewSha}
-              onChange={(e) => onSelectNewSha(e.target.value)}
-              className="w-full h-[40px] px-3 bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer"
+              onChange={(e) => handleTargetChange(e.target.value)}
+              className="w-full h-[40px] px-3 bg-slate-50 border border-slate-300 text-slate-900 text-xs rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none cursor-pointer font-medium"
             >
-              {commits.map((c) => {
+              {commits.map((c, i) => {
                 const { full, relative } = formatThaiDateTime(c.commit.author.date);
+                const isBaseline = c.sha === selectedOldSha;
+                const isBeforeBaseline = indexOld !== -1 && i >= indexOld;
+
                 return (
-                  <option key={`new-${c.sha}`} value={c.sha}>
-                    📅 {full} ({relative}) — #{c.sha.substring(0, 7)}
+                  <option
+                    key={`new-${c.sha}`}
+                    value={c.sha}
+                    disabled={isBaseline}
+                  >
+                    📅 {full} ({relative}) {isBeforeBaseline ? "⚠️ (เกิดขึ้นก่อน Baseline)" : ""}
                   </option>
                 );
               })}
