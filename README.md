@@ -1,31 +1,33 @@
-# 🎬 Thai Approved Movie & Video Catalog Scraper
+# 🎬 Thai Approved Movie & Video Catalog Scraper & Comparison Site
 
-Automated scraper and GitHub Actions workflow for fetching and maintaining the official catalog of approved movies and video content from the Ministry of Culture, Thailand ([movie2.culture.go.th](https://movie2.culture.go.th/CULTURE_MOVIE61/index.php?proc=search&page=1&keywords=)).
-
-## 📦 Dataset
-
-The output dataset is stored in JSON format at:
-- [`data/movies.json`](data/movies.json)
-
-### Schema
-
-```json
-[
-  {
-    "title": "ซีรีส์ที่สามของเธอ ตอนที่ 1 / Your Third Series EP.1",
-    "type": "ภาพยนตร์",
-    "license_no": "ภย. 292/69",
-    "remark": "หนังแผ่น",
-    "rating": "13+",
-    "approved_date": "24 ก.ค. 2569",
-    "applicant": "บริษัท มันดีเวิร์ค จำกัด"
-  }
-]
-```
+Automated scraper and dynamic web application for fetching, tracking, and comparing the official catalog of approved movies and video content from the Ministry of Culture, Thailand ([movie2.culture.go.th](https://movie2.culture.go.th/CULTURE_MOVIE61/index.php?proc=search&page=1&keywords=)).
 
 ---
 
-## 🚀 Local Usage
+## 🌐 Web Comparison Site Features
+
+The web app ([`web/`](web/)) provides an interactive UI to inspect and compare catalog changes across versions:
+
+1. **Commit Diff Comparison (เปรียบเทียบ)**: Select any two GitHub commits to view Added (`+`), Modified (`✎`), and Removed (`-`) movie entries with visual diffs.
+2. **Catalog Explorer (ค้นหาภาพยนตร์)**: Fast, interactive search with instant filters for Rating (13+, 15+, 18+, ทั่วไป), Medium (หนังโรง, หนังแผ่น), and Applicant company names. Includes JSON and CSV export.
+3. **Analytics (สถิติ)**: Rating distribution bars, medium breakdowns, and top applicant company rankings.
+
+---
+
+## ⚡ Cloudflare Pages Manual Deployment
+
+To host the web app on **Cloudflare Pages**:
+
+1. Connect your repository (`iamprompt/thai-movie-culture`) in the Cloudflare Dashboard (**Workers & Pages** -> **Create Application** -> **Pages** -> **Connect to Git**).
+2. Set the build settings:
+   - **Framework preset**: `Vite` / `None`
+   - **Build command**: `pnpm build` (or `pnpm --filter web build`)
+   - **Build output directory**: `web/dist`
+   - **Root directory**: `/` (or `web`)
+
+---
+
+## 📦 Local Usage
 
 ### Prerequisites
 - Node.js >= 20
@@ -38,43 +40,51 @@ The output dataset is stored in JSON format at:
    pnpm install
    ```
 
-2. **Run Incremental Scrape** (default: latest 50 pages / 500 items):
+2. **Run Scraper (Default: 50 pages / 500 items)**:
    ```bash
    pnpm run scrape
    ```
 
-3. **Run Incremental Scrape with custom page count**:
+3. **Run Scraper for specific page depth**:
    ```bash
    pnpm run scrape -- --pages 10
    ```
 
-4. **Run Full Scrape** (fetches all ~14,700+ pages):
+4. **Run Full Scrape (~14,700 pages)**:
    ```bash
    pnpm run scrape:full
    ```
 
----
-
-## 🤖 GitHub Actions Workflow
-
-The workflow `.github/workflows/fetch-movies.yml` automatically handles scraping, checking for diffs, and committing any changes to `data/movies.json`.
-
-### Triggers
-
-1. **External Event Trigger (`repository_dispatch`)**:
-   Trigger externally via GitHub REST API:
+5. **Start Web Comparison App locally**:
    ```bash
-   curl -X POST \
-     -H "Accept: application/vnd.github+json" \
-     -H "Authorization: Bearer <YOUR_GITHUB_TOKEN>" \
-     https://api.github.com/repos/<OWNER>/<REPO>/dispatches \
-     -d '{"event_type": "fetch-movies", "client_payload": {"max_pages": 50}}'
+   pnpm dev:web
    ```
 
-2. **Manual UI Trigger (`workflow_dispatch`)**:
-   - Go to Actions tab in GitHub repository.
-   - Select **Fetch Approved Thai Movies & Videos Data**.
-   - Choose options (Full scrape vs Incremental max pages) and click **Run workflow**.
+6. **Build Web Comparison App for production**:
+   ```bash
+   pnpm build
+   ```
 
-3. **Scheduled Cron**:
-   - Runs daily at `00:00 UTC`.
+---
+
+## 🤖 GitHub Actions & REST API Trigger
+
+The workflow `.github/workflows/fetch-movies.yml` scrapes and commits updates to `data/movies.json`.
+
+### Triggering via REST API
+
+**Repository Dispatch**:
+```bash
+curl -X POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer YOUR_GITHUB_TOKEN" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/iamprompt/thai-movie-culture/dispatches \
+  -d '{
+    "event_type": "fetch-movies",
+    "client_payload": {
+      "max_pages": 50,
+      "full_scrape": false
+    }
+  }'
+```

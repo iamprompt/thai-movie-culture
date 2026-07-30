@@ -1,17 +1,23 @@
 {
   "name": "thai-movie-culture",
   "version": "1.0.0",
-  "description": "Scraper for approved Thai movie & video content catalog from culture.go.th",
+  "description": "Scraper & Change Comparison Web App for approved Thai movie & video content catalog",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "scrape": "tsx src/index.ts",
-    "scrape:full": "tsx src/index.ts --full"
+    "scrape:full": "tsx src/index.ts --full",
+    "dev:web": "pnpm --filter web dev",
+    "build:web": "pnpm --filter web build",
+    "build": "pnpm --filter web build"
   },
   "keywords": [
     "thai-movie",
     "culture-go-th",
-    "scraper"
+    "scraper",
+    "react",
+    "vite",
+    "tailwindcss"
   ],
   "author": "",
   "license": "MIT",
