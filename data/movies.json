@@ -8917,5 +8917,32 @@
     "rating": "",
     "approved_date": "03 ส.ค. 2569",
     "applicant": "บริษัท เมเจอร์ ซีนีเพล็กซ์ กรุ้ป จำกัด (มหาชน)"
+  },
+  {
+    "title": "นักฆ่าโรแมนติก / Romantic Killer",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 298/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "03 ส.ค. 2569",
+    "applicant": "บริษัท คาโดคาวะ อมรินทร์ จำกัด"
+  },
+  {
+    "title": "เดอะ ก็อดฟาเธอร์ / The Godfather",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 297/69",
+    "remark": "หนังแผ่น",
+    "rating": "18+",
+    "approved_date": "03 ส.ค. 2569",
+    "applicant": "บริษัท เอกพัฒนกิจ จำกัด"
+  },
+  {
+    "title": "คำสารภาพของหมอผี / CONFESSIONS OF SHAMAN",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 296/69",
+    "remark": "หนังโรง",
+    "rating": "18+",
+    "approved_date": "03 ส.ค. 2569",
+    "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
   }
 ]
