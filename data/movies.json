@@ -9295,5 +9295,41 @@
     "rating": "ทั่วไป",
     "approved_date": "06 ส.ค. 2569",
     "applicant": "บริษัท เมเจอร์ ซีนีแอด จำกัด"
+  },
+  {
+    "title": "กังฟูซอคเกอร์ / Kung Fu Soccer",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 315/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "06 ส.ค. 2569",
+    "applicant": "นางสาวอรฉัตร ศุกระกาญจน์"
+  },
+  {
+    "title": "คนระห่ำห้ามรอด / Mutiny",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 314/69",
+    "remark": "หนังโรง",
+    "rating": "15+",
+    "approved_date": "06 ส.ค. 2569",
+    "applicant": "บริษัท สหมงคลฟิล์ม อินเตอร์เนชั่นแนล จำกัด"
+  },
+  {
+    "title": "ไวนด์ อัพ เดอะ มูฟวี่ / WIND UP : THE MOVIE",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 313/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "06 ส.ค. 2569",
+    "applicant": "บริษัท สหมงคลฟิล์ม อินเตอร์เนชั่นแนล จำกัด"
+  },
+  {
+    "title": "MC DONALD CHEESY DUNK",
+    "type": "ภาพยนตร์โฆษณาสินค้า",
+    "license_no": "ภยส. 82/69",
+    "remark": "โฆษณาสินค้า",
+    "rating": "ทั่วไป",
+    "approved_date": "06 ส.ค. 2569",
+    "applicant": "บริษัท เมเจอร์ ซีนีแอด จำกัด"
   }
 ]
