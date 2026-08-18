@@ -9637,5 +9637,32 @@
     "rating": "",
     "approved_date": "18 ส.ค. 2569",
     "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
+  },
+  {
+    "title": "ลบเธอ...ให้ไม่ลืม / Eternal Sunshine of the Spotless Mind",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 329/69",
+    "remark": "หนังแผ่น",
+    "rating": "15+",
+    "approved_date": "18 ส.ค. 2569",
+    "applicant": "บริษัท ฮาล ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "วิกฤติรักแดนเบอร์ลิน / The Lives of Others",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 328/69",
+    "remark": "หนังแผ่น",
+    "rating": "15+",
+    "approved_date": "18 ส.ค. 2569",
+    "applicant": "นางสาวพีรยา เทียมปัญญา"
+  },
+  {
+    "title": "แสงแรก / First Light",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 327/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "18 ส.ค. 2569",
+    "applicant": "นางสาว ธัญวรัตม์ สมบัติวัฒนา"
   }
 ]
