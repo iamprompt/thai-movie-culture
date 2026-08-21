@@ -9808,5 +9808,86 @@
     "rating": "13+",
     "approved_date": "21 ส.ค. 2569",
     "applicant": "บริษัท เจเอ็น เอ็คซ์พอร์ท อิมพอร์ท เทรดดิ้ง จำกัด"
+  },
+  {
+    "title": "Jason And The Argonauts",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 352/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "Last Year at Marienbad",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 351/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "International Competition 2",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 350/69",
+    "remark": "หนังแผ่น",
+    "rating": "15+",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
+  },
+  {
+    "title": "International Competition 1",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 349/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
+  },
+  {
+    "title": "Special Screening 2",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 348/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
+  },
+  {
+    "title": "International Out of Competition",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 347/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
+  },
+  {
+    "title": "Special Screening 1",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 346/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
+  },
+  {
+    "title": "A Time to Remember",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 345/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
+  },
+  {
+    "title": "A Time to Live",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 344/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "21 ส.ค. 2569",
+    "applicant": "บริษัท คัทบายคัท สตูดิโอ จำกัด"
   }
 ]
