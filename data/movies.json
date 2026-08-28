@@ -10141,5 +10141,41 @@
     "rating": "",
     "approved_date": "27 ส.ค. 2569",
     "applicant": "บริษัท เดอะ วอลท์ ดิสนีย์ (ประเทศไทย) จำกัด"
+  },
+  {
+    "title": "Roar",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 367/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "28 ส.ค. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "Tony Takitani",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 366/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "28 ส.ค. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "Hololive 3rd Generation",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 365/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "28 ส.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "Katy Perry: The Lifetimes Tour - Live from Paris",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 364/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "28 ส.ค. 2569",
+    "applicant": "บริษัท เมเจอร์ ซีนีเพล็กซ์ กรุ้ป จำกัด (มหาชน)"
   }
 ]
