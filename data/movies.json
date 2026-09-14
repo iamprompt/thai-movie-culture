@@ -10555,5 +10555,32 @@
     "rating": "",
     "approved_date": "11 ก.ย. 2569",
     "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "I'M GAME",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 392/69",
+    "remark": "หนังโรง",
+    "rating": "15+",
+    "approved_date": "14 ก.ย. 2569",
+    "applicant": "นายราชบีร์ ซิงห์ ทักราล"
+  },
+  {
+    "title": "HANUMAN ANSH",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 391/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "14 ก.ย. 2569",
+    "applicant": "นายราชบีร์ ซิงห์ ทักราล"
+  },
+  {
+    "title": "731 เชื้อนรก โลกจารึก (จับคนมาทำเชื้อโรค) / 731 EVIL UNBOUND",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 390/69",
+    "remark": "หนังโรง",
+    "rating": "18+",
+    "approved_date": "14 ก.ย. 2569",
+    "applicant": "บริษัท เฮาส์ออฟเอ็ม จำกัด"
   }
 ]
