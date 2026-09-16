@@ -10672,5 +10672,32 @@
     "rating": "",
     "approved_date": "16 ก.ย. 2569",
     "applicant": "บริษัท ฮาล ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "Inspiring Asia Micro Film Festival 2026",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 402/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "16 ก.ย. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "HIROSHIMA MON AMOUR",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 401/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "16 ก.ย. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "พิงค์ มาสสาจ / Pink Massage",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 400/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "16 ก.ย. 2569",
+    "applicant": "ชัชวาล ทองจันทร์"
   }
 ]
