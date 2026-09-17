@@ -10771,5 +10771,23 @@
     "rating": "",
     "approved_date": "17 ก.ย. 2569",
     "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "STREET FIGHTER",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 408/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "17 ก.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
+  },
+  {
+    "title": "DAAYRA",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 407/69",
+    "remark": "หนังโรง",
+    "rating": "15+",
+    "approved_date": "17 ก.ย. 2569",
+    "applicant": "นายราชบีร์ ซิงห์ ทักราล"
   }
 ]
