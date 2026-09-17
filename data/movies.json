@@ -10717,5 +10717,32 @@
     "rating": "",
     "approved_date": "16 ก.ย. 2569",
     "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "อเวนเจอร์ส: เผด็จศึก อังกอร์ / Avengers: Endgame Encore",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 405/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "17 ก.ย. 2569",
+    "applicant": "บริษัท เดอะ วอลท์ ดิสนีย์ (ประเทศไทย) จำกัด"
+  },
+  {
+    "title": "VIBE",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 404/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "17 ก.ย. 2569",
+    "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "ชินจัง เดอะมูฟวี่ ตอน ขนลุกซู่! วันหยุดพิศวงกับภูติผีกุ๊กกู๋ / Crayon Shin-chan The movie : Spooky ! My yokai vacation",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 403/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "17 ก.ย. 2569",
+    "applicant": "บริษัท ฉายแสง แอด.เวนเจอร์ จำกัด"
   }
 ]
