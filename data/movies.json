@@ -10843,5 +10843,59 @@
     "rating": "",
     "approved_date": "17 ก.ย. 2569",
     "applicant": "บริษัท เฮาส์ออฟเอ็ม จำกัด"
+  },
+  {
+    "title": "นอสตัลเจีย / Nostalgia",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 414/69",
+    "remark": "หนังแผ่น",
+    "rating": "15+",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "วีรภัทร สากลวารี"
+  },
+  {
+    "title": "ดิ อีเทอร์นัล แลบิรินทร์ / The Eternal Labyrinth",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 413/69",
+    "remark": "หนังแผ่น",
+    "rating": "15+",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "นายวีรภัทร สากลวารี"
+  },
+  {
+    "title": "เลือน: ย้ายรัง / Oblivon: a Pigeon's Journey on the Birth of a Nation",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 412/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "นายวีรภัทร สากลวารี"
+  },
+  {
+    "title": "ดิกเกอร์ / DIGGER",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 411/69",
+    "remark": "หนังโรง",
+    "rating": "15+",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "บริษัท ภาพยนตร์ วอเนอร์ บราเดอร์ส ฟาร์อีส อินคอโปเรชั่น"
+  },
+  {
+    "title": "ประเสริฐ / PRASERT",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 345/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (Flash Drive), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "บริษัท ฉายแสง แอด.เวนเจอร์ จำกัด"
+  },
+  {
+    "title": "เพอร์โซนา / PERSONA",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 344/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "บริษัท สหมงคลฟิล์ม อินเตอร์เนชั่นแนล จำกัด"
   }
 ]
