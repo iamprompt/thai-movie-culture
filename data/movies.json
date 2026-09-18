@@ -10816,5 +10816,32 @@
     "rating": "",
     "approved_date": "17 ก.ย. 2569",
     "applicant": "บริษัท เฮาส์ออฟเอ็ม จำกัด"
+  },
+  {
+    "title": "เบอเลนโตลี่ / Berlentoli",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 410/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "ชญวัจน์ ฤทธิธมนวัจน์"
+  },
+  {
+    "title": "โรวาจ / Rovaj",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 409/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "18 ก.ย. 2569",
+    "applicant": "ชญวัจน์ ฤทธิธมนวัจน์"
+  },
+  {
+    "title": "คนเหล็ก 2029 ภาค 2 / THE TERMINATOR 2",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 343/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "17 ก.ย. 2569",
+    "applicant": "บริษัท เฮาส์ออฟเอ็ม จำกัด"
   }
 ]
