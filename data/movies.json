@@ -11104,5 +11104,41 @@
     "rating": "13+",
     "approved_date": "22 ก.ย. 2569",
     "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "แด่เธอสุดปลายฟ้า / To You in the Beyond",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 435/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "22 ก.ย. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "ต้องรอดจากวาฬนี้ / Whalefall",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 434/69",
+    "remark": "หนังโรง",
+    "rating": "15+",
+    "approved_date": "22 ก.ย. 2569",
+    "applicant": "บริษัท เดอะ วอลท์ ดิสนีย์ (ประเทศไทย) จำกัด"
+  },
+  {
+    "title": "UNSHATTER",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 433/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "22 ก.ย. 2569",
+    "applicant": "บริษัท เมเจอร์ ซีนีเพล็กซ์ กรุ้ป จำกัด (มหาชน)"
+  },
+  {
+    "title": "SILENT FRIEND",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 432/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "22 ก.ย. 2569",
+    "applicant": "บริษัท ฉายแสง แอด.เวนเจอร์ จำกัด"
   }
 ]
