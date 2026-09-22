@@ -11086,5 +11086,23 @@
     "rating": "",
     "approved_date": "22 ก.ย. 2569",
     "applicant": "บริษัท ไอรีส ซีนีม่า (ไทยแลนด์) จำกัด"
+  },
+  {
+    "title": "ปลาประหลาด / Strange Fish",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 431/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "22 ก.ย. 2569",
+    "applicant": "นนทวัช วันนา"
+  },
+  {
+    "title": "THE VVAAN",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 430/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "22 ก.ย. 2569",
+    "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
   }
 ]
