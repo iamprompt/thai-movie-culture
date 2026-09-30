@@ -11293,5 +11293,32 @@
     "rating": "ทั่วไป",
     "approved_date": "28 ก.ย. 2569",
     "applicant": "บริษัท เฮาส์ออฟเอ็ม จำกัด"
+  },
+  {
+    "title": "DVD COMPLETE BOXSET มีสติหน่อยคุณธีร์",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 451/69",
+    "remark": "หนังแผ่น",
+    "rating": "15+",
+    "approved_date": "30 ก.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
+  },
+  {
+    "title": "DVD BOXSET PERTH SANTA DEVIL'S KISS CONCERT",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 450/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "30 ก.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
+  },
+  {
+    "title": "DVD BOXSET FEEL FAN FUN PARTY CONCERT",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 449/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "30 ก.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
   }
 ]
