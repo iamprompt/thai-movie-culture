@@ -12067,5 +12067,32 @@
     "rating": "13+",
     "approved_date": "28 ต.ค. 2569",
     "applicant": "บริษัท ภาพยนตร์ วอเนอร์ บราเดอร์ส ฟาร์อีส อินคอโปเรชั่น"
+  },
+  {
+    "title": "เสื่อมสาม / Seum Sam",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 501/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "28 ต.ค. 2569",
+    "applicant": "แพรวา ชุ่มอภัย"
+  },
+  {
+    "title": "Love Live! ?'s 3rd Anniversary LoveLive!",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 389/69",
+    "remark": "ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "28 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "Yorushika Live Plagiarism",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 388/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "28 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
   }
 ]
