@@ -12463,5 +12463,86 @@
     "rating": "15+",
     "approved_date": "06 พ.ย. 2569",
     "applicant": "บริษัท จีดีเอช ห้าห้าเก้า จำกัด"
+  },
+  {
+    "title": "ศึกครอบครัวตัวแสบ / FOCKER IN-LAW",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 525/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "06 พ.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
+  },
+  {
+    "title": "Perfume ꞌꞌCold Sleepꞌꞌ -25 years Document-",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 512/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "02 พ.ย. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "Love Live! μ's 3rd Anniversary LoveLive!",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 509/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "30 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "เอวานเกเลียน เดธ & รีเบิร์ธ / EVANGELION: DEATH (TRUE)² & REBIRTH",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 507/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "30 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "ยอดนักสืบพรีเคียว! เดอะมูฟวี่ มหัศจรรย์สวนพิศวงกับคู่หูปริศนา / 名探偵プリキュア！不思議な庭と2 人の秘密 (Star Detective Precure! The Movie: The Mysterious Garden and a Secret Pair)",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 488/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "22 ต.ค. 2569",
+    "applicant": "บริษัท แอนนิเมชั่น อินเตอร์เนชั่นแนล (ประเทศไทย) จำกัด"
+  },
+  {
+    "title": "เอวานเกเลียน เดธ & รีเบิร์ธ / EVANGELION: DEATH (TRUE)² & REBIRTH",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 396/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "29 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "Perfume ꞌꞌCold Sleepꞌꞌ -25 years Document-",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 394/69",
+    "remark": "ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "29 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "Love Live! μ's 3rd Anniversary LoveLive!",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 389/69",
+    "remark": "ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "28 ต.ค. 2569",
+    "applicant": "บริษัท ดรีม เอกซ์เพรส จำกัด"
+  },
+  {
+    "title": "ยอดนักสืบพรีเคียว! เดอะมูฟวี่ มหัศจรรย์สวนพิศวงกับคู่หูปริศนา / 名探偵プリキュア！不思議な庭と2 人の秘密 (Star Detective Precure! The Movie: The Mysterious Garden and a Secret Pair)",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 359/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (Flash Drive), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "07 ต.ค. 2569",
+    "applicant": "บริษัท แอนนิเมชั่น อินเตอร์เนชั่นแนล (ประเทศไทย) จำกัด"
   }
 ]
