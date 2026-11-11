@@ -12652,5 +12652,41 @@
     "rating": "ทั่วไป",
     "approved_date": "09 พ.ย. 2569",
     "applicant": "นภสินธุ์ สามแก้วแจ่ม"
+  },
+  {
+    "title": "DVD BOXSET POND PHUWIN SPACE SOUL-DYSSEY  CONCERT",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 537/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "10 พ.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
+  },
+  {
+    "title": "DVD BOXSET SOTUS TENIVERSARY CONCERT",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 536/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "10 พ.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
+  },
+  {
+    "title": "กระทะเหล็กฝ่าสมรภูมิ / ONCE UPON A TIME IN THE MIDDLE EAST",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 535/69",
+    "remark": "หนังโรง",
+    "rating": "18+",
+    "approved_date": "10 พ.ย. 2569",
+    "applicant": "นางสาวอรฉัตร ศุกระกาญจน์"
+  },
+  {
+    "title": "YOU CAN SEE EVERYTHING TR#A , V.1",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 410/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "10 พ.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
   }
 ]
