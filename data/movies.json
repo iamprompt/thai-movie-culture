@@ -12688,5 +12688,95 @@
     "rating": "",
     "approved_date": "10 พ.ย. 2569",
     "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
+  },
+  {
+    "title": "All the Lovers in the Night",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 544/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "12 พ.ย. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "The Mother of All Lies",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 543/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "12 พ.ย. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "East of Eden",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 542/69",
+    "remark": "หนังแผ่น",
+    "rating": "13+",
+    "approved_date": "12 พ.ย. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "Santa Sangre",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 541/69",
+    "remark": "หนังแผ่น",
+    "rating": "18+",
+    "approved_date": "12 พ.ย. 2569",
+    "applicant": "บริษัท มูฟวี่ส์ แม็ทเทอร์ จำกัด"
+  },
+  {
+    "title": "ไร้บ้าน ไม่ไร้หวัง / Homeless",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 540/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "11 พ.ย. 2569",
+    "applicant": "บริษัท กันตนา โพสท์ โปรดักชั่น (ไทยแลนด์) จำกัด"
+  },
+  {
+    "title": "การ์ดไฟท์!! แวนการ์ด ดิไวน์ซ ศึกดาราชะตาลิขิต / CARDFIGHT!! Vanguard Divinez : Parallactic Fate",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 539/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "11 พ.ย. 2569",
+    "applicant": "บริษัท คิดซ์ แอนด์ คิทซ์ จำกัด"
+  },
+  {
+    "title": "เดอะ ฮังเกอร์เกมส์: รุ่งอรุณเกมล่าเกม / THE HUNGER GAMES: SUNRISE ON THE REAPING",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 538/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "11 พ.ย. 2569",
+    "applicant": "บริษัท สหมงคลฟิล์ม อินเตอร์เนชั่นแนล จำกัด"
+  },
+  {
+    "title": "จดหมายรัก...จากฉันถึงเธอ / One Last Love Letter",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 413/69",
+    "remark": "ใบปิดประกาศ, ภาพยนตร์ตัวอย่าง (DVD)",
+    "rating": "",
+    "approved_date": "11 พ.ย. 2569",
+    "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "มากกว่านี้ก็เรียกว่ารัก / IN HARMONY",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 412/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (Flash Drive), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "11 พ.ย. 2569",
+    "applicant": "บริษัท โกดัง เอ็นเตอร์เทนเม้นท์ กรุ๊ป จำกัด"
+  },
+  {
+    "title": "โคโค่เมลอน เดอะ มูฟวี่ V.1",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 411/69",
+    "remark": "ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "11 พ.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
   }
 ]
