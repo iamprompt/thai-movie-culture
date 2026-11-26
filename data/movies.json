@@ -13021,5 +13021,86 @@
     "rating": "",
     "approved_date": "23 พ.ย. 2569",
     "applicant": "บริษัท เอ็ม ดิสทริบิวชั่น จำกัด"
+  },
+  {
+    "title": "YOU CAN SEE EVERYTHING",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 564/69",
+    "remark": "หนังโรง",
+    "rating": "13+",
+    "approved_date": "26 พ.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
+  },
+  {
+    "title": "แอ๊งกรี เบิร์ดส เดอะ มูวี่ 3 / THE ANGRY BIRDS MOVIE 3",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 563/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "26 พ.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
+  },
+  {
+    "title": "บาดเล็กเจ็บลึก / First Cuts Are the Deepest",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 562/69",
+    "remark": "หนังโรง",
+    "rating": "ทั่วไป",
+    "approved_date": "26 พ.ย. 2569",
+    "applicant": "บ.ดรีม ซีเควนซ์ จำกัด"
+  },
+  {
+    "title": "ฤดูประหลาด / LUNATIC SUMMER",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 561/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "26 พ.ย. 2569",
+    "applicant": "บริษัท แบรนด์ธิงค์ จำกัด"
+  },
+  {
+    "title": "DVD BOXSET GEMINI ART-VENTURE CONCERT",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 560/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "26 พ.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
+  },
+  {
+    "title": "DVD BOXSET SKY NANI S TO THE N FANCON",
+    "type": "ภาพยนตร์",
+    "license_no": "ภย. 559/69",
+    "remark": "หนังแผ่น",
+    "rating": "ทั่วไป",
+    "approved_date": "26 พ.ย. 2569",
+    "applicant": "บริษัท จีเอ็มเอ็ม ทีวี จำกัด"
+  },
+  {
+    "title": "Eyes Wide Shut",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 429/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "25 พ.ย. 2569",
+    "applicant": "บริษัท สหมงคลฟิล์ม อินเตอร์เนชั่นแนล จำกัด"
+  },
+  {
+    "title": "นรกเรียกพ่อ 2 / THE BEEKEEPER 2",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 428/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "25 พ.ย. 2569",
+    "applicant": "บริษัท สหมงคลฟิล์ม อินเตอร์เนชั่นแนล จำกัด"
+  },
+  {
+    "title": "K-POP : THE DEBUT  TR#A , V.1",
+    "type": "สื่อโฆษณาภาพยนตร์",
+    "license_no": "สภย. 427/69",
+    "remark": "ภาพยนตร์ตัวอย่าง (DVD), ใบปิดประกาศ",
+    "rating": "",
+    "approved_date": "25 พ.ย. 2569",
+    "applicant": "บริษัท ยูไนเต็ด อินเตอร์เนชั่นแนล พิคเจอร์ส (ฟาร์อีสต์) จำกัด"
   }
 ]
